@@ -3,7 +3,7 @@
 
 echo "-----> Building qrencode"
 
-curl http://fukuchi.org/works/qrencode/qrencode-3.2.0.tar.gz | tar xzf
+curl http://fukuchi.org/works/qrencode/qrencode-3.2.0.tar.gz | tar xz
 cd qrencode-3.2.0; ./configure; make; make install
 cd $1
 
