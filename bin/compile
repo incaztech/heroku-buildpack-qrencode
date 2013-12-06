@@ -3,8 +3,9 @@
 
 echo "-----> Building qrencode"
 
+mkdir -p $HOME/qr
 curl http://fukuchi.org/works/qrencode/qrencode-3.2.0.tar.gz | tar xz
-cd qrencode-3.2.0; ./configure; make; make install
+cd qrencode-3.2.0; ./configure --prefix=$HOME/qr; make; make install
 cd $1
 
-export PATH=\"\$HOME/qr/qrencode-3.2.0:$HOME/bin:/.bin:\$PATH\"
+export PATH=\"\$HOME/qr:$HOME/bin:/.bin:\$PATH\"
