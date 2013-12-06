@@ -6,6 +6,15 @@ echo "-----> Building qrencode"
 #apt-get install -y libqrencode-dev
 mkdir -p $HOME/qr
 BUILD_DIR=$HOME/qr
+mkdir -p $1/.profile.d
+
+cat <<EOF >$BUILD_DIR/.profile.d/qrencoder.sh
+export PATH="$BUILD_DIR/bin:$PATH"
+export LD_LIBRARY_PATH="$BUILD_DIR/lib:$LD_LIBRARY_PATH"
+export INCLUDE_PATH="$BUILD_DIR/include:$INCLUDE_PATH"
+export CPATH="$INCLUDE_PATH"
+export CPPPATH="$INCLUDE_PATH"
+EOF
 
 export PATH="$BUILD_DIR/bin:$PATH"
 export LD_LIBRARY_PATH="$BUILD_DIR/lib:$LD_LIBRARY_PATH"
